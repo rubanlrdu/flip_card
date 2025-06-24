@@ -1,0 +1,146 @@
+
+
+@import url('https://fonts.cdnfonts.com/css/chaparral-pro');
+                
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Chaparral Pro', sans-serif;
+  line-height: 1.4;
+}
+
+body {
+  background-color: #000000;
+}
+
+/* Container holding the card */
+.card_container {
+  perspective: 1000px;
+  width: 350px;
+  height: 250px;
+  margin: 100px auto;
+}
+
+/* Flip card base */
+.card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.9s ease-in-out;
+}
+
+.card_container:hover .card {
+  transform: rotateY(180deg);
+}
+
+/* Shared face styles */
+.frontcard,
+.backcard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* FRONT SIDE STYLES */
+.frontcard {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.frontcard img {
+  max-width: 80%;
+  display: block;
+  margin: 65px auto;
+  height: 75px;
+  width: 200px;
+}
+
+/* BACK SIDE with flowing gradient BORDER only */
+.backcard {
+  position: relative;
+  padding: 2px; /* Border thickness */
+  border-radius: 15px;
+  background: linear-gradient(90deg, #833ab4, #fd1d1d, #fcb045, #833ab4);
+  background-size: 300% 300%;
+  animation: flow-border 3s linear infinite;
+  transform: rotateY(180deg);
+}
+
+/* Inner content with black background */
+.backcard-content {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 13px; /* Slightly smaller than parent for border effect */
+  padding: 16px 20px 12px 20px;
+  height: 100%;
+  overflow-y: auto;
+  text-align: left;
+}
+
+/* TEXT & BUTTON STYLES */
+.name {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #00bfd4;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.description {
+  font-size: 0.85rem;
+  color: #d8cccc;
+  margin-bottom: 10px;
+}
+
+strong {
+  color: #6effec;
+  text-transform: capitalize;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: 1px solid #4caf50;
+  background-color: #00ffff;
+  color: rgb(0, 0, 0);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 10px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.btn:hover {
+  background-color: #004382;
+  color: white;
+  border-color: #43a047;
+}
+
+/* Animation for gradient border */
+@keyframes flow-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
